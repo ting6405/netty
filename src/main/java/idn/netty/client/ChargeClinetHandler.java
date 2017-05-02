@@ -32,7 +32,10 @@ public class ChargeClinetHandler extends ChannelHandlerAdapter {
 
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-		System.out.println("channelRead---------------");
+		ByteBuf byteBuf = (ByteBuf) msg;
+		byte[] buf = new byte[byteBuf.readableBytes()]; 
+		byteBuf.readBytes(buf);
+		System.out.println("-------length:"+buf.length);
 	}
 
 	@Override
