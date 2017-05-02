@@ -35,11 +35,12 @@ public class ChargeClinetHandler extends ChannelHandlerAdapter {
 		ByteBuf byteBuf = (ByteBuf) msg;
 		byte[] buf = new byte[byteBuf.readableBytes()]; 
 		byteBuf.readBytes(buf);
-		System.out.println("-------length:"+buf.length);
+		System.out.println("--------length:"+buf.length);
 	}
 
 	@Override
 	public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
+		ctx.flush();
 		System.out.println("channelReadComplete------------------");
 	}
 
